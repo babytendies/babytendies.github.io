@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Tendies | Small Hands, Big Tendies 🍗</title>
+  <meta name="description" content="Baby Tendies is a meme reward token on RobinhoodChain. Hold BabyTendies and get automatically fed real $TENDIES rewards, straight to your wallet. Small hands, big tendies. To the moon." />
+
+  <!-- ===== Social share preview (Open Graph + Twitter/X card) =====
+       Live domain: babytendies.xyz · preview image: media/og-image.jpg (1200x630).
+       If you swap the banner, regenerate og-image.jpg and bump ?v=1 to ?v=2 to bust caches. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baby Tendies" />
+  <meta property="og:url" content="https://babytendies.xyz/" />
+  <meta property="og:title" content="Baby Tendies | Small Hands, Big Tendies 🍗" />
+  <meta property="og:description" content="Hold BabyTendies, get fed real $TENDIES automatically. 3% tax, half straight to holders. Built on RobinhoodChain. To the moon. 🚀" />
+  <meta property="og:image" content="https://babytendies.xyz/media/og-image.jpg?v=1" />
+  <meta property="og:image:secure_url" content="https://babytendies.xyz/media/og-image.jpg?v=1" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Baby Tendies: a baby trader in candlestick shades holding a chicken tendie" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Baby Tendies | Small Hands, Big Tendies 🍗" />
+  <meta name="twitter:description" content="Hold BabyTendies, get fed real $TENDIES automatically. Built on RobinhoodChain. 🚀" />
+  <meta name="twitter:image" content="https://babytendies.xyz/media/og-image.jpg?v=1" />
+
+  <meta name="theme-color" content="#eaa63c" />
+  <link rel="canonical" href="https://babytendies.xyz/" />
+  <link rel="icon" type="image/jpeg" href="./media/logo.jpg" />
+  <link rel="apple-touch-icon" href="./media/logo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top">
+      <img src="./media/logo.jpg" alt="Baby Tendies logo" class="brand-logo" />
+      <span class="brand-name">Baby&nbsp;Tendies</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">Story</a>
+      <a href="#how">How it works</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#dashboard">Tendie Tracker</a>
+      <a href="#checker">My Tendies</a>
+      <a href="#memes">Memes</a>
+      <a class="btn btn-green btn-sm" href="#dashboard">Live Rewards</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">🍗 Built on RobinhoodChain</span>
+        <h1 class="hero-title">
+          Small hands.<br />
+          <span class="grad-tendie">Big tendies.</span>
+        </h1>
+        <p class="hero-sub">
+          <strong>Baby Tendies</strong> is the hungriest little degen on RobinhoodChain.
+          Every trade pays a <strong>3% tax</strong>, and half of it gets swapped into
+          real <strong>$TENDIES</strong> and spoon-fed straight to holders. No staking,
+          no claiming, no crying. Just hold and get fed. 🚀
+        </p>
+        <div class="hero-cta">
+          <a href="#dashboard" class="btn btn-green">🍗 See the Tendie Tracker</a>
+          <a href="#checker" class="btn btn-ghost">Check My Tendies</a>
+        </div>
+        <div class="hero-badges">
+          <div class="badge"><b>3%</b><span>Snack Tax</span></div>
+          <div class="badge"><b>$TENDIES</b><span>Reward Payout</span></div>
+          <div class="badge"><b>Auto</b><span>Spoon-fed</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-art-frame">
+          <img src="./media/logo.jpg" alt="Baby Tendies mascot: a baby trader in candlestick sunglasses holding a chicken tendie" />
+        </div>
+        <div class="sticker sticker-1">🍗</div>
+        <div class="sticker sticker-2">🚀</div>
+        <div class="sticker sticker-3">🍼</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TICKER STRIP ===================== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>SMALL HANDS, BIG TENDIES 🍗</span><span>FEED ME TENDIES 🍼</span>
+      <span>HODL 🐤</span><span>TO THE MOON 🚀</span><span>GET FED $TENDIES 💚</span>
+      <span>SMALL HANDS, BIG TENDIES 🍗</span><span>FEED ME TENDIES 🍼</span>
+      <span>HODL 🐤</span><span>TO THE MOON 🚀</span><span>GET FED $TENDIES 💚</span>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT / STORY ===================== -->
+  <section class="section story" id="about">
+    <div class="section-head">
+      <span class="kicker">🍼 The Story</span>
+      <h2>The baby just wants his <span class="grad-green">tendies.</span></h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-card">
+        <img src="./media/meme2.jpg" alt="Baby dipping a tendie into a treasure chest of golden sauce" />
+      </div>
+      <div class="story-text">
+        <p>
+          RobinhoodChain lit up when <strong>$TENDIES</strong> went full WallStreetBets,
+          ripping to eight-figure daily volume. Baby Tendies is the little brother who
+          showed up to the highchair with a bib and a plan: <strong>hold, and get fed.</strong>
+        </p>
+        <p>
+          Every buy and sell drips a <strong>3% snack tax</strong>. Half of it is swapped
+          into real <strong>$TENDIES</strong> and automatically served to every eligible
+          holder. The rest fuels marketing, buy-backs and burns to keep the highchair
+          rocking. You don't lift a finger — the baby does the eating for you.
+        </p>
+        <ul class="story-list">
+          <li><span>🍗</span> Rewards paid in real <strong>$TENDIES</strong>, not empty reflections.</li>
+          <li><span>🤲</span> Auto-fed to your wallet. No staking, no claim button.</li>
+          <li><span>🔒</span> Fully on-chain and decentralized on RobinhoodChain.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section how" id="how">
+    <div class="section-head">
+      <span class="kicker">🍟 How it works</span>
+      <h2>Three bites to <span class="grad-tendie">passive tendies</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-emoji">🤲</div>
+        <h3>Grab your Baby Tendies</h3>
+        <p>Buy and hold BabyTendies in your own wallet. Keep the minimum balance to earn a seat at the highchair.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-emoji">🍼</div>
+        <h3>The 3% tax feeds the tray</h3>
+        <p>Every trade drips a 3% tax. Half is swapped to $TENDIES and loaded into the reward tray, automatically.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-emoji">🍗</div>
+        <h3>Get spoon-fed $TENDIES</h3>
+        <p>Your share is pushed straight to your wallet in real $TENDIES. Watch the tendies pile up just for holding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOKENOMICS ===================== -->
+  <section class="section tokenomics" id="tokenomics">
+    <div class="section-head">
+      <span class="kicker">📊 Tokenomics</span>
+      <h2>The <span class="grad-green">3% snack tax</span>, split</h2>
+      <p class="section-lead">One little tax, doing a lot of heavy lifting for the highchair.</p>
+    </div>
+
+    <div class="token-grid">
+      <div class="token-card big-card">
+        <div class="token-big grad-tendie">1.5%</div>
+        <h3>🍗 Fed to Holders</h3>
+        <p>Half the tax is swapped into real <strong>$TENDIES</strong> and auto-distributed to every eligible holder.</p>
+      </div>
+      <div class="token-card">
+        <div class="token-big grad-green">1.5%</div>
+        <h3>📣 Marketing, Buy-back &amp; Burn</h3>
+        <p>The other half fuels marketing pushes, strategic buy-backs, and burns to keep Baby Tendies growing.</p>
+      </div>
+      <div class="token-card">
+        <div class="token-big grad-tendie">$TENDIES</div>
+        <h3>🍼 Reward Token</h3>
+        <p>You're fed the hottest meme on RobinhoodChain — real, liquid $TENDIES, straight to your wallet.</p>
+      </div>
+      <div class="token-card">
+        <div class="token-big grad-green">Auto</div>
+        <h3>🤖 Distribution</h3>
+        <p>The reward contract sweeps and feeds automatically. Set it, hold it, snack on the gains.</p>
+      </div>
+    </div>
+
+    <div class="contract-box">
+      <div class="contract-label">📜 Official BabyTendies Contract Address</div>
+      <div class="contract-row">
+        <code id="contractAddr">0x0000000000000000000000000000000000000000</code>
+        <button class="btn btn-green btn-sm" id="copyContract">Copy</button>
+      </div>
+      <p class="contract-hint">Always double-check the address before buying. Only trade through official links.</p>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <section class="section dashboard" id="dashboard">
+    <div class="section-head">
+      <span class="kicker">📡 Live from the chain</span>
+      <h2>The <span class="grad-tendie">Tendie Tracker</span></h2>
+      <p class="section-lead">Real-time reward data pulled straight from the Baby Tendies reward contract on RobinhoodChain.</p>
+    </div>
+
+    <div class="vault-panel">
+      <div class="vault-hero">
+        <div class="vault-hero-icon">🍗</div>
+        <div class="vault-hero-body">
+          <div class="vault-hero-label">Total $TENDIES Fed to Holders</div>
+          <div class="vault-hero-value" id="statTotalTok"><span class="skl skl-lg"></span> <em>$TENDIES</em></div>
+          <div class="vault-hero-usd" id="statTotalUsd">Awaiting contract</div>
+        </div>
+      </div>
+
+      <div class="vault-stats">
+        <div class="vstat">
+          <div class="vstat-label">🍽️ On the Tray (Pending Pool)</div>
+          <div class="vstat-value" id="statPoolTok"><span class="skl"></span> <em>$TENDIES</em></div>
+          <div class="vstat-sub" id="statPoolUsd">Awaiting contract</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat-label">📦 Total Committed Rewards</div>
+          <div class="vstat-value" id="statCommittedTok"><span class="skl"></span> <em>$TENDIES</em></div>
+          <div class="vstat-sub" id="statCommittedUsd">Awaiting contract</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat-label">🐤 Fed Holders</div>
+          <div class="vstat-value" id="statHolders"><span class="skl"></span></div>
+          <div class="vstat-sub">Earning shareholders</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat-label">💵 $TENDIES Price</div>
+          <div class="vstat-value" id="statTendiesPrice"><span class="skl"></span></div>
+          <div class="vstat-sub" id="statTendiesChange">Live from DexScreener</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat-label">⏱️ Min. Feed Interval</div>
+          <div class="vstat-value" id="statMinPeriod"><span class="skl"></span></div>
+          <div class="vstat-sub">Between auto-feeds</div>
+        </div>
+      </div>
+
+      <div class="dash-foot">
+        <span class="dot" id="rpcDot"></span>
+        <span id="rpcStatus">Connecting to RobinhoodChain…</span>
+        <button class="btn btn-ghost btn-sm" id="refreshBtn">↻ Refresh</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REWARD CHECKER ===================== -->
+  <section class="section checker" id="checker">
+    <div class="section-head">
+      <span class="kicker">🍗 Your cut</span>
+      <h2>Check <span class="grad-green">your tendies</span></h2>
+      <p class="section-lead">Paste any wallet to see how much $TENDIES it has been fed, and what's still on the tray.</p>
+    </div>
+
+    <div class="checker-box">
+      <div class="checker-input">
+        <input type="text" id="walletInput" placeholder="0x… paste a wallet address" spellcheck="false" autocomplete="off" />
+        <button class="btn btn-green" id="checkBtn">Check Tendies</button>
+      </div>
+      <p class="checker-hint" id="checkerHint">Enter a valid 0x wallet address to look up its tendie history.</p>
+
+      <div class="checker-results" id="checkerResults" hidden>
+        <div class="res-card res-primary">
+          <div class="res-label">🏆 Total $TENDIES Received</div>
+          <div class="res-value" id="resReceivedTok"><span class="skl skl-lg"></span> <em>$TENDIES</em></div>
+          <div class="res-usd" id="resReceivedUsd"></div>
+        </div>
+        <div class="res-card">
+          <div class="res-label">🍽️ Pending (Unfed)</div>
+          <div class="res-value" id="resPendingTok"><span class="skl"></span> <em>$TENDIES</em></div>
+          <div class="res-usd" id="resPendingUsd"></div>
+        </div>
+        <div class="res-card">
+          <div class="res-label">🎯 Eligible Balance</div>
+          <div class="res-value" id="resShares"><span class="skl"></span></div>
+          <div class="res-usd">BabyTendies counted for rewards</div>
+        </div>
+        <div class="res-card">
+          <div class="res-label">🕒 Last Feed</div>
+          <div class="res-value" id="resLastClaim"><span class="skl"></span></div>
+          <div class="res-usd" id="resLastClaimRel"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MEMES ===================== -->
+  <section class="section memes" id="memes">
+    <div class="section-head">
+      <span class="kicker">🤣 The Highchair Gallery</span>
+      <h2>Certified <span class="grad-tendie">tendie</span> memes</h2>
+    </div>
+    <div class="meme-grid">
+      <figure class="meme"><img src="./media/meme.jpg" alt="Baby Robin Hood firing a tendie arrow at the moon" loading="lazy" /></figure>
+      <figure class="meme"><img src="./media/meme3.jpg" alt="Baby holding a tendie with green rocket and charts" loading="lazy" /></figure>
+      <figure class="meme"><img src="./media/banner.jpg" alt="Baby Tendies banner" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section cta-wrap">
+    <div class="cta-band">
+      <h3>The baby's still hungry. 🍗</h3>
+      <p>Grab your Baby Tendies, hold tight, and let the highchair feed you $TENDIES.</p>
+      <a href="#dashboard" class="btn btn-green btn-lg">See the Live Rewards</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="./media/logo.jpg" alt="Baby Tendies" class="footer-logo" />
+        <div>
+          <div class="footer-name">Baby Tendies</div>
+          <div class="footer-tag">Small hands, big tendies. To the moon. 🚀</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#about">The Story</a>
+          <a href="#how">How it works</a>
+          <a href="#dashboard">Tendie Tracker</a>
+          <a href="#checker">My Tendies</a>
+        </div>
+        <div class="footer-col">
+          <h4>Rewards</h4>
+          <a href="https://dexscreener.com/robinhood/0x45242320DBB855EeA8Fd36804C6487E10E97FCF9" target="_blank" rel="noopener">$TENDIES on DexScreener</a>
+          <a href="https://rpc.mainnet.chain.robinhood.com" target="_blank" rel="noopener">RobinhoodChain RPC</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <!-- Replace these with your real socials -->
+          <a href="#" target="_blank" rel="noopener">✈️ Telegram</a>
+          <a href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a class="built-on" href="https://rpc.mainnet.chain.robinhood.com" target="_blank" rel="noopener">
+        <img src="./media/robinhoodIcon.png" alt="RobinhoodChain" />
+        <span>Built on <strong>RobinhoodChain</strong></span>
+      </a>
+      <p class="disclaimer">
+        Baby Tendies is a decentralized meme community token. Nothing here is financial advice.
+        Crypto is volatile, so never invest more than you can afford to lose. $TENDIES is a
+        separate third-party token used only as the reward asset.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
