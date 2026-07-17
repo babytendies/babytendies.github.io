@@ -12,7 +12,7 @@ const CONFIG = {
   RPC_URL: "https://rpc.mainnet.chain.robinhood.com",
 
   // 🔴 PLACEHOLDER: replace with the real Baby Tendies DividendDistributor address.
-  DISTRIBUTOR_ADDRESS: "0xDe5162fB6027bDA755E59eB809347d220145CB7E",
+  DISTRIBUTOR_ADDRESS: "0x97164784b52fd5dEAc1b146BDaFB304434B691B3",
 
   // Reward token paid to holders: $TENDIES on RobinhoodChain (18 decimals).
   REWARD_TOKEN: "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9",
