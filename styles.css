@@ -210,21 +210,23 @@ h1, h2, h3, h4, .brand-name, .step-num, .token-big, .btn, .kicker {
 .step h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 .step p { color: var(--muted); font-size: 0.98rem; }
 
-/* ============================ Tokenomics ============================ */
-.token-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
-.token-card {
-  background: var(--panel); border: 2px solid var(--panel-brd); border-radius: var(--radius);
-  padding: 2rem 1.5rem; text-align: center; transition: transform 0.22s, border-color 0.22s;
+/* ============================ Tokenomics (one unified panel) ============================ */
+.token-panel {
+  max-width: 1000px; margin: 0 auto;
+  background: radial-gradient(720px 260px at 50% -14%, rgba(234,166,60,0.12), transparent 60%), var(--panel);
+  border: 3px solid rgba(234, 166, 60, 0.32); border-radius: 26px;
+  box-shadow: 0 0 70px -30px var(--tendie-glow), 0 34px 80px -34px rgba(0,0,0,0.85); overflow: hidden;
 }
-.token-card:hover { transform: translateY(-5px); border-color: rgba(70,209,96,0.45); }
+.token-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2px; background: rgba(70, 209, 96, 0.14); }
+.token-cell { background: var(--panel-solid); padding: 2.1rem 1.6rem; text-align: center; transition: background 0.2s; }
+.token-cell:hover { background: var(--bg-3); }
 .token-big { font-family: var(--disp); font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-.token-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-.token-card p { color: var(--muted); font-size: 0.93rem; }
+.token-cell h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.token-cell p { color: var(--muted); font-size: 0.93rem; }
 
-.contract-box {
-  margin: 3rem auto 0; max-width: 780px;
-  background: var(--panel); border: 2px dashed rgba(234,166,60,0.4); border-radius: var(--radius);
-  padding: 1.8rem clamp(1.3rem, 4vw, 2.2rem); text-align: center;
+.token-contract {
+  padding: 2rem clamp(1.4rem, 4vw, 2.6rem);
+  border-top: 2px solid rgba(234, 166, 60, 0.18); text-align: center;
 }
 .contract-label { font-family: var(--disp); font-size: 0.95rem; font-weight: 600; color: var(--tendie-light); margin-bottom: 1rem; }
 .contract-row {
@@ -307,27 +309,9 @@ h1, h2, h3, h4, .brand-name, .step-num, .token-big, .btn, .kicker {
 .checker-hint { text-align: center; color: var(--faint); font-size: 0.9rem; margin-top: 1rem; font-weight: 700; }
 .checker-hint.err { color: #f08a8a; }
 
-.checker-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 2rem; }
-.checker-results[hidden] { display: none; }
-.res-card { background: var(--panel); border: 2px solid var(--panel-brd); border-radius: var(--radius); padding: 1.5rem; }
-.res-primary {
-  grid-column: span 2;
-  background: radial-gradient(500px 160px at 20% 0%, rgba(234,166,60,0.16), transparent 60%), var(--panel);
-  border-color: rgba(234, 166, 60, 0.4);
-}
-.res-label { color: var(--muted); font-size: 0.9rem; font-weight: 800; }
-.res-value {
-  font-family: var(--disp); font-size: 1.6rem; font-weight: 700; margin-top: 0.4rem;
-  background: linear-gradient(100deg, var(--gains-bright), var(--gains));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.res-primary .res-value {
-  font-size: clamp(1.9rem, 5vw, 2.7rem);
-  background: linear-gradient(100deg, var(--tendie-light), var(--tendie-deep));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.res-value em { font-style: normal; font-size: 0.46em; -webkit-text-fill-color: var(--faint); font-weight: 800; font-family: var(--body); }
-.res-usd { color: var(--faint); font-size: 0.92rem; margin-top: 0.3rem; font-weight: 700; }
+/* Results reuse the unified .vault-panel / .vault-hero / .vault-stats styling */
+.result-panel { margin-top: 2rem; }
+.result-panel[hidden] { display: none; }
 
 /* ============================ Memes ============================ */
 .meme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
@@ -371,7 +355,7 @@ h1, h2, h3, h4, .brand-name, .step-num, .token-big, .btn, .kicker {
   .hero-inner, .story-grid { grid-template-columns: 1fr; }
   .hero-art { order: -1; max-width: 440px; margin: 0 auto; }
   .story-card { order: -1; }
-  .steps, .token-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
   .meme-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
@@ -389,11 +373,30 @@ h1, h2, h3, h4, .brand-name, .step-num, .token-big, .btn, .kicker {
   .nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 @media (max-width: 560px) {
-  .steps, .token-grid, .checker-results, .meme-grid { grid-template-columns: 1fr; }
-  .res-primary { grid-column: span 1; }
+  .steps, .meme-grid { grid-template-columns: 1fr; }
   .checker-input { flex-direction: column; }
   .checker-input .btn { width: 100%; }
   .vault-hero { flex-direction: column; text-align: center; gap: 0.8rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* Show two details per row on mobile for tokenomics + rewards + checker */
+  .token-grid, .vault-stats { grid-template-columns: 1fr 1fr; }
+  /* An odd stat left alone in a 2-col row spans the full width (tracker + checker) */
+  .vault-stats .vstat:last-child { grid-column: 1 / -1; }
+
+  .token-cell { padding: 1.5rem 0.95rem; }
+  .token-big { font-size: 1.75rem; }
+  .token-cell h3 { font-size: 0.92rem; }
+  .token-cell p { font-size: 0.85rem; }
+
+  .vstat { padding: 1.15rem 0.9rem; }
+  .vstat-label { font-size: 0.76rem; }
+  .vstat-value { font-size: 1.2rem; }
+  .vstat-value em { font-size: 0.5em; }
+  .vstat-sub { font-size: 0.76rem; }
+}
+@media (max-width: 380px) {
+  .token-big { font-size: 1.5rem; }
+  .vstat-value { font-size: 1.05rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto; } }

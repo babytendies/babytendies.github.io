@@ -128,7 +128,7 @@
           Every buy and sell drips a <strong>3% snack tax</strong>. Half of it is swapped
           into real <strong>$TENDIES</strong> and automatically served to every eligible
           holder. The rest fuels marketing, buy-backs and burns to keep the highchair
-          rocking. You don't lift a finger — the baby does the eating for you.
+          rocking. You don't lift a finger, the baby does the eating for you.
         </p>
         <ul class="story-list">
           <li><span>🍗</span> Rewards paid in real <strong>$TENDIES</strong>, not empty reflections.</li>
@@ -175,36 +175,38 @@
       <p class="section-lead">One little tax, doing a lot of heavy lifting for the highchair.</p>
     </div>
 
-    <div class="token-grid">
-      <div class="token-card big-card">
-        <div class="token-big grad-tendie">1.5%</div>
-        <h3>🍗 Fed to Holders</h3>
-        <p>Half the tax is swapped into real <strong>$TENDIES</strong> and auto-distributed to every eligible holder.</p>
+    <div class="token-panel">
+      <div class="token-grid">
+        <div class="token-cell">
+          <div class="token-big grad-tendie">1.5%</div>
+          <h3>🍗 Fed to Holders</h3>
+          <p>Half the tax is swapped into real <strong>$TENDIES</strong> and auto-distributed to every eligible holder.</p>
+        </div>
+        <div class="token-cell">
+          <div class="token-big grad-green">1.5%</div>
+          <h3>📣 Marketing, Buy-back &amp; Burn</h3>
+          <p>The other half fuels marketing pushes, strategic buy-backs, and burns to keep Baby Tendies growing.</p>
+        </div>
+        <div class="token-cell">
+          <div class="token-big grad-tendie">$TENDIES</div>
+          <h3>🍼 Reward Token</h3>
+          <p>You're fed the hottest meme on RobinhoodChain: real, liquid $TENDIES, straight to your wallet.</p>
+        </div>
+        <div class="token-cell">
+          <div class="token-big grad-green">Auto</div>
+          <h3>🤖 Distribution</h3>
+          <p>The reward contract sweeps and feeds automatically. Set it, hold it, snack on the gains.</p>
+        </div>
       </div>
-      <div class="token-card">
-        <div class="token-big grad-green">1.5%</div>
-        <h3>📣 Marketing, Buy-back &amp; Burn</h3>
-        <p>The other half fuels marketing pushes, strategic buy-backs, and burns to keep Baby Tendies growing.</p>
-      </div>
-      <div class="token-card">
-        <div class="token-big grad-tendie">$TENDIES</div>
-        <h3>🍼 Reward Token</h3>
-        <p>You're fed the hottest meme on RobinhoodChain — real, liquid $TENDIES, straight to your wallet.</p>
-      </div>
-      <div class="token-card">
-        <div class="token-big grad-green">Auto</div>
-        <h3>🤖 Distribution</h3>
-        <p>The reward contract sweeps and feeds automatically. Set it, hold it, snack on the gains.</p>
-      </div>
-    </div>
 
-    <div class="contract-box">
-      <div class="contract-label">📜 Official BabyTendies Contract Address</div>
-      <div class="contract-row">
-        <code id="contractAddr">0x88e1e2Cba76d42c8ACaEf6b3e76aa2F156a6B584</code>
-        <button class="btn btn-green btn-sm" id="copyContract">Copy</button>
+      <div class="token-contract">
+        <div class="contract-label">📜 Official BabyTendies Contract Address</div>
+        <div class="contract-row">
+          <code id="contractAddr">0x88e1e2Cba76d42c8ACaEf6b3e76aa2F156a6B584</code>
+          <button class="btn btn-green btn-sm" id="copyContract">Copy</button>
+        </div>
+        <p class="contract-hint">Always double-check the address before buying. Only trade through official links.</p>
       </div>
-      <p class="contract-hint">Always double-check the address before buying. Only trade through official links.</p>
     </div>
   </section>
 
@@ -277,26 +279,31 @@
       </div>
       <p class="checker-hint" id="checkerHint">Enter a valid 0x wallet address to look up its tendie history.</p>
 
-      <div class="checker-results" id="checkerResults" hidden>
-        <div class="res-card res-primary">
-          <div class="res-label">🏆 Total $TENDIES Received</div>
-          <div class="res-value" id="resReceivedTok"><span class="skl skl-lg"></span> <em>$TENDIES</em></div>
-          <div class="res-usd" id="resReceivedUsd"></div>
+      <div class="vault-panel result-panel" id="checkerResults" hidden>
+        <div class="vault-hero">
+          <div class="vault-hero-icon">🏆</div>
+          <div class="vault-hero-body">
+            <div class="vault-hero-label">Total $TENDIES Received</div>
+            <div class="vault-hero-value" id="resReceivedTok"><span class="skl skl-lg"></span> <em>$TENDIES</em></div>
+            <div class="vault-hero-usd" id="resReceivedUsd"></div>
+          </div>
         </div>
-        <div class="res-card">
-          <div class="res-label">🍽️ Pending (Unfed)</div>
-          <div class="res-value" id="resPendingTok"><span class="skl"></span> <em>$TENDIES</em></div>
-          <div class="res-usd" id="resPendingUsd"></div>
-        </div>
-        <div class="res-card">
-          <div class="res-label">🎯 Eligible Balance</div>
-          <div class="res-value" id="resShares"><span class="skl"></span></div>
-          <div class="res-usd">BabyTendies counted for rewards</div>
-        </div>
-        <div class="res-card">
-          <div class="res-label">🕒 Last Feed</div>
-          <div class="res-value" id="resLastClaim"><span class="skl"></span></div>
-          <div class="res-usd" id="resLastClaimRel"></div>
+        <div class="vault-stats">
+          <div class="vstat">
+            <div class="vstat-label">🍽️ Pending (Unfed)</div>
+            <div class="vstat-value" id="resPendingTok"><span class="skl"></span> <em>$TENDIES</em></div>
+            <div class="vstat-sub" id="resPendingUsd"></div>
+          </div>
+          <div class="vstat">
+            <div class="vstat-label">🎯 Eligible Balance</div>
+            <div class="vstat-value" id="resShares"><span class="skl"></span></div>
+            <div class="vstat-sub">BabyTendies counted for rewards</div>
+          </div>
+          <div class="vstat">
+            <div class="vstat-label">🕒 Last Feed</div>
+            <div class="vstat-value" id="resLastClaim"><span class="skl"></span></div>
+            <div class="vstat-sub" id="resLastClaimRel"></div>
+          </div>
         </div>
       </div>
     </div>
