@@ -301,7 +301,7 @@ function initParticles() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const canvas = $("fx");
   const ctx = canvas.getContext("2d");
-  const EMOJI = ["🍗", "🍟", "🚀", "🍼", "💚"];
+  const EMOJI = ["🍗", "🍟", "⭐", "🚀", "🍼"];
   let w, h, bits;
 
   function resize() {
