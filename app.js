@@ -62,7 +62,8 @@ function fmtTok(bnLike) {
 function fmtUsd(tokAmount) {
   if (!tendiesUsd || !tokAmount) return "≈ $0.00";
   const usd = tokAmount * tendiesUsd;
-  return "≈ $" + usd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: usd < 1000 ? 2 : 0 });
+  const frac = usd < 1000 ? 2 : 0; // whole dollars for big amounts, cents for small
+  return "≈ $" + usd.toLocaleString(undefined, { minimumFractionDigits: frac, maximumFractionDigits: frac });
 }
 
 function fmtPrice(p) {
