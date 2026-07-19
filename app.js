@@ -108,16 +108,30 @@ async function loadTendiesPrice() {
   try {
     const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${CONFIG.REWARD_TOKEN}`, { cache: "no-store" });
     const data = await res.json();
-    const pairs = Array.isArray(data?.pairs) ? data.pairs : [];
-    // pick the deepest-liquidity pair for the truest price
-    let best = null;
-    for (const p of pairs) {
-      const liq = p?.liquidity?.usd || 0;
-      if (!best || liq > (best?.liquidity?.usd || 0)) best = p;
-    }
-    if (best?.priceUsd) {
-      tendiesUsd = Number(best.priceUsd);
-      tendiesChange24 = (best.priceChange && typeof best.priceChange.h24 === "number") ? best.priceChange.h24 : null;
+    const reward = CONFIG.REWARD_TOKEN.toLowerCase();
+
+    // Only pools where TENDIES is the base token (so priceUsd is the TENDIES price),
+    // with real liquidity. Some pools are mispriced, so we reject outliers below.
+    const cands = (Array.isArray(data?.pairs) ? data.pairs : [])
+      .filter((p) => p?.baseToken?.address?.toLowerCase() === reward && Number(p.priceUsd) > 0)
+      .map((p) => ({
+        price: Number(p.priceUsd),
+        liq: Number(p?.liquidity?.usd) || 0,
+        ch: (p.priceChange && typeof p.priceChange.h24 === "number") ? p.priceChange.h24 : null,
+      }))
+      .filter((p) => p.liq >= 1000);
+
+    if (cands.length) {
+      // Median price is robust against a single mispriced/manipulated pool.
+      const sorted = cands.map((c) => c.price).sort((a, b) => a - b);
+      const median = sorted[Math.floor(sorted.length / 2)];
+      // Use the deepest pool whose price is sane (within 50% of the median).
+      const sane = cands
+        .filter((c) => median > 0 && Math.abs(c.price - median) / median < 0.5)
+        .sort((a, b) => b.liq - a.liq);
+      const best = sane[0] || cands.sort((a, b) => b.liq - a.liq)[0];
+      tendiesUsd = best.price;
+      tendiesChange24 = best.ch;
     }
   } catch { /* keep last known */ }
 
